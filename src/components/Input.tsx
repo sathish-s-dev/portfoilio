@@ -1,5 +1,4 @@
 import React from 'react';
-import { InputProps } from '../../types';
 
 const Input = ({ type, placeholder, className, ref }: InputProps) => {
 	return (

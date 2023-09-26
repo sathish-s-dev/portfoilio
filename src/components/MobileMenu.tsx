@@ -15,7 +15,7 @@ const sidebar = {
 		},
 	}),
 	closed: {
-		clipPath: 'circle(25px at 82% 5%)',
+		clipPath: 'circle(25px at 82% 5.5%)',
 		transition: {
 			delay: 0.1,
 			type: 'spring',
@@ -47,7 +47,7 @@ export const MobileMenu = () => {
 				}
 				variants={sidebar}
 			/>
-			<Navigation toggle={handleToggle} />
+			<Navigation toggle={handleToggle} isOpen={isOpen} />
 			<MenuToggle toggle={handleToggle} />
 		</motion.nav>
 	);

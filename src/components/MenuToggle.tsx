@@ -11,10 +11,10 @@ const Path = (props: any) => (
 	/>
 );
 
-export const MenuToggle = ({ toggle }: { toggle: () => void }) => {
+export const MenuToggle = ({ toggle }: { toggle: HandleToggle }) => {
 	return (
 		<button
-			className='outline-none border-none cursor-pointer absolute top-[22px] right-[13px] w-[50px] h-[50px] rounded-full bg-transparent'
+			className='outline-none border-none cursor-pointer absolute top-[22px] right-[13px] w-[50px] h-[40px] rounded-full bg-transparent'
 			title='menu toggle'
 			onClick={toggle}>
 			<svg

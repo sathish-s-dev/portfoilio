@@ -13,12 +13,18 @@ const variants = {
 	},
 };
 
-export const Navigation = ({ toggle }: { toggle: HandleToggle }) => {
+export const Navigation = ({
+	toggle,
+	isOpen,
+}: {
+	toggle: HandleToggle;
+	isOpen: boolean;
+}) => {
 	return (
 		<motion.ul
-			className={
-				'absolute top-20 left-0 w-full overflow-hidden flex flex-col gap-6 mt-2'
-			}
+			className={`absolute top-20 left-0 w-full flex-col gap-6 mt-2 ${
+				isOpen ? 'flex' : 'hidden'
+			}`}
 			variants={variants}>
 			{navItems.map((i, index) => (
 				<MenuItem

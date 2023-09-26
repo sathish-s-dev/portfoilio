@@ -24,7 +24,15 @@ const variants = {
 
 // const colors = ['#FF008C', '#D309E1', '#9C1AFF', '#7700FF', '#4400FF'];
 
-export const MenuItem = ({ i, index }: { i: MenuItemProps; index: number }) => {
+export const MenuItem = ({
+	i,
+	index,
+	handleToggle,
+}: {
+	i: MenuItemProps;
+	index: number;
+	handleToggle: HandleToggle
+}) => {
 	const pathName = usePathname();
 
 	return (
@@ -36,7 +44,8 @@ export const MenuItem = ({ i, index }: { i: MenuItemProps; index: number }) => {
 			whileHover={{ scale: 1.1 }}
 			whileTap={{ scale: 1 }}>
 			<Link
-				className={``}
+				className={`w-full text-center`}
+				onClick={handleToggle}
 				href={i.url}>
 				{i.title}
 			</Link>

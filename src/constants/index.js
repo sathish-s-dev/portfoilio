@@ -110,7 +110,7 @@ export const skills = [
 export const pageTransitionVariant = {
 	hidden: {
 		opacity: 0,
-		x: -50,
+		x: -100,
 	},
 	enter: {
 		opacity: 1,
@@ -118,6 +118,6 @@ export const pageTransitionVariant = {
 	},
 	exit: {
 		opacity: 0,
-		x: 50,
+		x: 100,
 	},
 };

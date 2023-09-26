@@ -15,9 +15,9 @@ const sidebar = {
 		},
 	}),
 	closed: {
-		clipPath: 'circle(25px at 82% 6.25%)',
+		clipPath: 'circle(25px at 82% 5%)',
 		transition: {
-			delay: 0.5,
+			delay: 0.1,
 			type: 'spring',
 			stiffness: 400,
 			damping: 40,
@@ -30,6 +30,9 @@ export const MobileMenu = () => {
 	const containerRef = useRef(null);
 	const { height } = useDimensions(containerRef);
 
+	const handleToggle = () => {
+		toggleOpen();
+	};
 
 	return (
 		<motion.nav
@@ -39,11 +42,13 @@ export const MobileMenu = () => {
 			custom={height}
 			ref={containerRef}>
 			<motion.div
-				className={"absolute top-0 right-0 bottom-0 min-h-screen w-72 bg-accent-400 border backdrop-blur-3xl border-light-400/50 "}
+				className={
+					'absolute top-0 right-0 bottom-0 min-h-screen w-72 bg-accent-400 border backdrop-blur-3xl border-light-400/50 '
+				}
 				variants={sidebar}
 			/>
-			<Navigation  />
-			<MenuToggle toggle={() => toggleOpen()} />
+			<Navigation toggle={handleToggle} />
+			<MenuToggle toggle={handleToggle} />
 		</motion.nav>
 	);
 };

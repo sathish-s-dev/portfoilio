@@ -23,6 +23,7 @@ const Contact = () => {
 								className='w-full h-full object-contain'
 								width={350}
 								height={350}
+								priority
 							/>
 						</div>
 					</div>

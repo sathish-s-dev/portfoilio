@@ -28,3 +28,5 @@ interface MenuItemProps {
 	title: string;
 	url: string;
 }
+
+type HandleToggle = () => void;

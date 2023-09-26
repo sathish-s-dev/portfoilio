@@ -19,6 +19,7 @@ const About = () => {
 								width={200}
 								height={150}
 								alt='hero image'
+								priority
 							/>
 						</div>
 						<div className='flex-1 flex gap-5 items-center md:items-start justify-center flex-col'>

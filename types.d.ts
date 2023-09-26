@@ -23,3 +23,8 @@ interface ProgressBarProps {
 	value: number;
 	heading: string;
 }
+
+interface MenuItemProps {
+	title: string;
+	url: string;
+}

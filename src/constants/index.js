@@ -1,3 +1,7 @@
+import { TfiInstagram, TfiGithub, TfiLinkedin,TfiFacebook } from 'react-icons/tfi';
+
+import { AiFillFacebook } from 'react-icons/ai';
+
 export const navItems = [
 	{
 		title: 'About',
@@ -25,22 +29,22 @@ export const footerItems = [
 	{
 		title: 'instagram',
 		url: '#',
-		icon: '',
+		icon: <TfiInstagram />,
 	},
 	{
 		title: 'facebook',
 		url: '#',
-		icon: '',
+		icon: <TfiFacebook />,
 	},
 	{
 		title: 'github',
 		url: '#',
-		icon: '',
+		icon: <TfiGithub />,
 	},
 	{
 		title: 'linkedIn',
 		url: '#',
-		icon: '',
+		icon: <TfiLinkedin />,
 	},
 ];
 

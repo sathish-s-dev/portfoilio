@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 
 import { footerItems } from '@/constants';
-import Image from 'next/image';
+import { SocialIcons } from './SocialIcons';
 
 const Footer = () => {
 	return (
@@ -30,23 +30,4 @@ const Footer = () => {
 
 export default Footer;
 
-export function SocialIcons() {
-	return (
-		<>
-			{footerItems.map((item) => (
-				<Link
-					key={item.title}
-					href={'#'}>
-					<Image
-						className='border rounded-full'
-						width={40}
-						height={40}
-						src={item.icon}
-						key={item.title}
-						alt={item.title}
-					/>
-				</Link>
-			))}
-		</>
-	);
-}
+

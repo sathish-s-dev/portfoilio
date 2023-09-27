@@ -30,7 +30,7 @@ const Contact = () => {
 					<div className=' flex-1 flex flex-col md:flex-row gap-4 bg-light-400/5 rounded-lg border p-8 md:p-16 justify-center items-center'>
 						<div className='flex-1 flex flex-col gap-3 max-w-md'>
 							<h2 className='text-xl tracking-wide text-accent-400 font-semibold'>
-								Social Links
+								Contact
 							</h2>
 							<p className='text-sm text-light-400'>
 								I&#39;m currently looking to join a cross-functional team that
@@ -40,7 +40,7 @@ const Contact = () => {
 						</div>
 						<div className='flex flex-col justify-center gap-4 p-10 items-center'>
 							<h2 className='text-xl tracking-wide text-accent-400 font-semibold'>
-								Contact
+								Social Links
 							</h2>
 							<div className='flex gap-4 flex-wrap'>
 								<SocialIcons />

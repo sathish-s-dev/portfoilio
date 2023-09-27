@@ -7,21 +7,30 @@ import { Navigation } from './Navigation';
 
 const sidebar = {
 	open: (height = 1000) => ({
-		clipPath: `circle(${height * 2 + 200}px at 82% 6% )`,
+		clipPath: `circle(${height * 2 + 200}px at 82% 4.5% )`,
 		transition: {
 			type: 'spring',
-			stiffness: 20,
+			stiffness: 10,
 			restDelta: 2,
+			damping: 5,
 		},
+		// transition: {
+		// 	type: 'tween',
+		// 	duration: 1.5,
+		// },
 	}),
 	closed: {
-		clipPath: 'circle(25px at 82% 5.5%)',
+		clipPath: 'circle(0px at 82% 4.5%)',
 		transition: {
-			delay: 0.1,
+			delay: 0,
 			type: 'spring',
 			stiffness: 400,
 			damping: 40,
 		},
+		// transition: {
+		// 	type: 'tween',
+		// 	duration: 0.5,
+		// },
 	},
 };
 
@@ -47,7 +56,10 @@ export const MobileMenu = () => {
 				}
 				variants={sidebar}
 			/>
-			<Navigation toggle={handleToggle} isOpen={isOpen} />
+			<Navigation
+				toggle={handleToggle}
+				isOpen={isOpen}
+			/>
 			<MenuToggle toggle={handleToggle} />
 		</motion.nav>
 	);

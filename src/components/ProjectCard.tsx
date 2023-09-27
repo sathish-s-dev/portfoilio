@@ -1,14 +1,32 @@
+'use client';
+
 import Image from 'next/image';
-import React from 'react';
+import React, { useRef } from 'react';
+import { useInView } from 'framer-motion';
+
 import { ProjectDetails } from './ProjectDetails';
 
 const ProjectCard = (props: ProjectCardProps) => {
 	const { src, direction } = props;
+
+	const cardRef = useRef(null);
+
+	const view = useInView(cardRef, {
+		once: true,
+		amount: 'all',
+	});
 	return (
 		<div
+			ref={cardRef}
 			className={`max-w-2xl flex py-4 md:justify-center md:flex-row ${
-				direction === 'right' ? 'flex-col-reverse items-end' : 'flex-col'
-			} md:items-center cursor-pointer`}>
+				direction === 'right'
+					? `flex-col-reverse items-end ${
+							view ? 'translate-y-0 opacity-1' : 'translate-y-24 opacity-0'
+					  }`
+					: `flex-col ${
+							view ? 'translate-y-0 opacity-1' : 'translate-y-24 opacity-0'
+					  }`
+			} md:items-center cursor-pointer transition-all duration-[1.5s] `}>
 			{direction === 'left' ? (
 				<>
 					<ProjectDetails {...props} />

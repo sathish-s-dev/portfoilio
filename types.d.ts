@@ -31,3 +31,7 @@ interface MenuItemProps {
 
 type HandleToggle = () => void;
 
+interface MobileMenuProps {
+	isOpen: boolen;
+	toggle: HandleToggle;
+}

@@ -4,7 +4,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Button from './Button';
 import { NavItems } from './NavItems';
-import { MobileMenu } from './MobileMenu';
+import { useCycle } from 'framer-motion';
+import { IoIosMenu, IoIosClose } from 'react-icons/io';
+import { useEffect } from 'react';
+import MobileMenu from './MobileMenu';
 
 export function Header() {
 	return (
@@ -18,7 +21,7 @@ export function Header() {
 				/>
 			</Link>
 			<div className='flex gap-20 justify-center items-center'>
-				<NavItems  className='hidden md:flex'/>
+				<NavItems className='hidden md:flex' />
 				<MobileMenu />
 				<Button
 					href='/contact'

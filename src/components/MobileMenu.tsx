@@ -1,66 +1,90 @@
-import * as React from 'react';
-import { useRef } from 'react';
-import { motion, sync, useCycle } from 'framer-motion';
-import { useDimensions } from '@/hooks/useDimenstions';
-import { MenuToggle } from './MenuToggle';
-import { Navigation } from './Navigation';
+import { useCycle, motion } from 'framer-motion';
+import React from 'react';
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import Link from 'next/link';
+import { navItems } from '@/constants';
+import { usePathname } from 'next/navigation';
 
-const sidebar = {
-	open: (height = 1000) => ({
-		clipPath: `circle(${height * 2 + 200}px at 82% 4.5% )`,
-		transition: {
-			type: 'spring',
-			stiffness: 10,
-			restDelta: 2,
-			damping: 5,
+const variants = {
+	container: {
+		hidden: {
+			clipPath: 'circle(30px at 80% 10%)',
+			transition: {
+				delay: 2,
+				type: 'spring',
+				stiffness: 400,
+				damping: 40,
+
+				staggerChildren: 0.05,
+				staggerDirection: -1,
+			},
 		},
-		// transition: {
-		// 	type: 'tween',
-		// 	duration: 1.5,
-		// },
-	}),
-	closed: {
-		clipPath: 'circle(0px at 82% 4.5%)',
-		transition: {
-			delay: 0,
-			type: 'spring',
-			stiffness: 400,
-			damping: 40,
+		show: (height = 300) => ({
+			clipPath: `circle(${height * 2 + 200}px at 80% 5%)`,
+			transition: {
+				type: 'spring',
+				stiffness: 20,
+				restDelta: 2,
+				staggerChildren: 0.07,
+				delayChildren: 0.2,
+			},
+		}),
+	},
+	link: {
+		hidden: {
+			y: 50,
+			opacity: 0,
+			transition: {
+				y: { stiffness: 50 },
+			},
 		},
-		// transition: {
-		// 	type: 'tween',
-		// 	duration: 0.5,
-		// },
+		show: {
+			y: 0,
+			opacity: 1,
+			transition: {
+				y: { stiffness: 50, velocity: -100 },
+			},
+		},
 	},
 };
 
-export const MobileMenu = () => {
+const MobileMenu = () => {
 	const [isOpen, toggleOpen] = useCycle(false, true);
-	const containerRef = useRef(null);
-	const { height } = useDimensions(containerRef);
-
-	const handleToggle = () => {
-		toggleOpen();
-	};
+	const pathName = usePathname();
 
 	return (
-		<motion.nav
-			initial={false}
-			className={`absolute top-0 right-0 bottom-0 min-h-screen w-72 md:hidden z-50`}
-			animate={isOpen ? 'open' : 'closed'}
-			custom={height}
-			ref={containerRef}>
-			<motion.div
-				className={
-					'absolute top-0 right-0 bottom-0 min-h-screen w-72 bg-accent-400 border backdrop-blur-3xl border-light-400/50 '
-				}
-				variants={sidebar}
-			/>
-			<Navigation
-				toggle={handleToggle}
-				isOpen={isOpen}
-			/>
-			<MenuToggle toggle={handleToggle} />
-		</motion.nav>
+		<div
+			className='text-2xl cursor-pointer relative md:hidden block'
+			onClick={() => toggleOpen()}>
+			{isOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
+			{isOpen ? (
+				<motion.div
+					variants={variants.container}
+					initial='hidden'
+					animate='show'
+					className='bg-accent-400 w-72 h-screen absolute -top-8 -right-6 -z-10'>
+					<nav className='flex-col gap-4 text-[16px] relative flex top-20 items-strech text-center '>
+						{navItems.map((item, index) => (
+							<motion.li
+								variants={variants.link}
+								key={index}
+								className={`list-none ${
+									pathName === item.url
+										? 'text-accent-400 bg-light-400 hover:drop-shadow-2xl hover:text-accent-500'
+										: 'text-slate-300'
+								}`}>
+								<Link
+									className={`font-semibold hover:scale-105 hover:drop-shadow-xl origin-left transition-all duration-100 p-2 `}
+									href={item.url}>
+									{item.title}
+								</Link>
+							</motion.li>
+						))}
+					</nav>
+				</motion.div>
+			) : null}
+		</div>
 	);
 };
+
+export default MobileMenu;

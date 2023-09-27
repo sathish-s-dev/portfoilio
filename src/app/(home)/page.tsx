@@ -27,13 +27,13 @@ export default function Home() {
 						className='font-semibold'
 					/>
 				</div>
-				<div className='flex-1 w-full justify-center flex h-full relative items-center'>
+				<div className='flex-1 w-full justify-center flex relative items-center'>
 					<Image
 						src='/hero_img.webp'
 						alt='hero image'
 						width={450}
 						height={350}
-						className='object-cover w-72 rounded-b-3xl'
+						className='object-cover w-72 h-[400px] rounded-b-[150px] overlay'
 						priority
 					/>
 				</div>

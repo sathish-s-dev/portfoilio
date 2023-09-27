@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import { SocialIcons } from '@/components/Footer';
+import { SocialIcons } from '@/components/SocialIcons';
 import GetInTouch from '@/components/GetInTouch';
 import PageTransition from '@/components/PageTransition';
 

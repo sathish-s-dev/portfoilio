@@ -17,3 +17,9 @@
 }
 
 
+.overlay {
+  /* -webkit-clip-path: url("/splash.svg"); */
+  clip-path: url("/logo.svg");
+  object-position: center top;
+  filter: brightness(0.7);
+}

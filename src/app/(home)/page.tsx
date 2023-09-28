@@ -3,6 +3,7 @@ import Button from '../../components/Button';
 import PageTransition from '@/components/PageTransition';
 import { JobText } from '@/components/JobText';
 import { TypeAnimation } from 'react-type-animation';
+import { Particle } from '@/components/Particles';
 
 export default function Home() {
 	return (
@@ -39,6 +40,7 @@ export default function Home() {
 					/>
 				</div>
 			</div>
+			<Particle />
 		</PageTransition>
 	);
 }

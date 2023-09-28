@@ -12,7 +12,7 @@ const PageTransition = ({ children }: { children: ReactNode }) => {
 			animate={enter}
 			transition={{
 				type: 'spring',
-				damping: 7,
+				damping: 10,
 			}}
 			exit={exit}>
 			{children}

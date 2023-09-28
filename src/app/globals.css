@@ -23,3 +23,9 @@
   object-position: center top;
   filter: brightness(0.7);
 }
+
+html,
+body {
+  -webkit-scrollbar-width: 0px;
+  scrollbar-width: 0px;
+}

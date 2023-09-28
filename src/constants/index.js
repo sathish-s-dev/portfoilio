@@ -1,6 +1,9 @@
-import { TfiInstagram, TfiGithub, TfiLinkedin,TfiFacebook } from 'react-icons/tfi';
-
-import { AiFillFacebook } from 'react-icons/ai';
+import {
+	TfiInstagram,
+	TfiGithub,
+	TfiLinkedin,
+	TfiFacebook,
+} from 'react-icons/tfi';
 
 export const navItems = [
 	{
@@ -114,14 +117,14 @@ export const skills = [
 export const pageTransitionVariant = {
 	hidden: {
 		opacity: 0,
-		x: -100,
+		y: 50,
 	},
 	enter: {
 		opacity: 1,
-		x: 0,
+		y: 0,
 	},
 	exit: {
 		opacity: 0,
-		x: 100,
+		y: -50,
 	},
 };
